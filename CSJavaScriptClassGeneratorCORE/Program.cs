@@ -24,7 +24,9 @@ namespace CSJavaScriptClassGeneratorCORE
         private const string APPSETTINGS_TEMPLATESUBPATH = "TEMPLATESUBPATH";
 
         private const string APPSETTINGS_JAVASCRIPTTEMPLATESUBPATH = "JAVASCRIPTTEMPLATESUBPATH";
-        
+        private const string APPSETTINGS_JAVASCRIPTOBJECTSERVICETEMPLATESUBPATH = "JAVASCRIPTOBJECTSERVICETEMPLATESUBPATH";
+
+
         public IConfiguration Config { get; set; }
 
         #endregion members
@@ -42,11 +44,11 @@ namespace CSJavaScriptClassGeneratorCORE
 
             Ac4yClass ac4yClass = new Ac4yClassHandler().GetAc4yClassFromType(typeof(CSEFTPC4Core3Objects.Ac4yObjects.Ac4yPersistentChild));
 
-            new JavaScriptClassGenerator()
+            new JSObjectServiceGenerator()
             {
                 TemplatePath = Config[APPSETTINGS_TEMPLATEPATH]
                 ,
-                TemplateSubPath = Config[APPSETTINGS_JAVASCRIPTTEMPLATESUBPATH]
+                TemplateSubPath = Config[APPSETTINGS_JAVASCRIPTOBJECTSERVICETEMPLATESUBPATH]
                 ,
                 OutputPath = Config[APPSETTINGS_JAVASCRIPTOUTPUTPATH]
             }
